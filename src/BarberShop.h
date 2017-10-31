@@ -3,6 +3,7 @@
  *
  *  Created on: Oct 30, 2017
  *      Author: Sean
+ *      header for barbershop used in part 1. defined customer in here
  */
 
 #ifndef BARBERSHOP_H_
@@ -11,8 +12,8 @@
 #include <string>
 #include "LinkedStack.h"
 class Customer{
-	string fName;
-	string lName;
+	string mfName;
+	string mlName;
 public:
 	Customer();
 	Customer(string s1, string s2);

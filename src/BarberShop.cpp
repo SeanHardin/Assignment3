@@ -3,6 +3,7 @@
  *
  *  Created on: Oct 30, 2017
  *      Author: Sean
+ *      creates definitions for the barbershop.h file
  */
 
 #include <iostream>
@@ -12,16 +13,16 @@ using namespace std;
 //***PART II********************************************
 
 Customer::Customer(){//constructor
-	fName = lName = "";
+	mfName = mlName = "";
 }
 
 Customer::Customer(string str1, string str2){//constructor
-	fName = str1;
-	lName = str2;
+	mfName = str1;
+	mlName = str2;
 }
 
 string Customer::getName(){//returns full name
-	return fName + " " + lName;
+	return mfName + " " + mlName;
 }
 
 void BarberShop::addCustomer(Customer& customer){//add customer to stack

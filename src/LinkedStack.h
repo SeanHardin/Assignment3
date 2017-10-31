@@ -3,6 +3,7 @@
  *
  *  Created on: Oct 30, 2017
  *      Author: Sean
+ *      template class for link based stack, includes definitions because templates
  */
 
 #ifndef LINKEDSTACK_H_
@@ -43,9 +44,9 @@ bool LinkedStack<T>::isEmpty(){
 template <typename T>//returns number of entries in stack
 int LinkedStack<T>::getCount(){
 	int count = 0;
-	Node<T> *temp = top;
+	Node<T> *ptemp = top;
 	while (!isEmpty()){
-		temp = temp->next;
+		ptemp = ptemp->next;
 		count++;//count after leaving node
 	}
 	return count;
@@ -58,21 +59,21 @@ Node<T> LinkedStack<T>::getTop(){
 
 template <typename T>//destroy and return top node
 Node<T> LinkedStack<T>::pop(){
-	Node<T> *del = top;//to delete
+	Node<T> *pdel = top;//to delete
 	Node<T> temp = *top;//to return
 	if (!isEmpty()){
 		top = top->next;
-		delete del;//actually delete nodes when lost
+		delete pdel;//actually delete nodes when lost
 	}
 	return temp;
 }
 
 template <typename T>//add onto the stack
 void LinkedStack<T>::push(const T& datum){
-	Node<T> *newNode = new Node<T>();
-	newNode->data = datum;
-	newNode->next = top;
-	top = newNode;
+	Node<T> *pnewNode = new Node<T>();
+	pnewNode->data = datum;
+	pnewNode->next = top;
+	top = pnewNode;
 }
 
 template <typename T>//empty list

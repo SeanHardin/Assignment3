@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : Assignment3.cpp
 // Author      : Sean Hardin
-// Version     :
+// Date        : 10/31/17
 // Copyright   : Your copyright notice
 // Description : Assignment 3 for cs300, includes main for barbershop,
 // 				 stack based summation, and recursively printing an int backwards
@@ -38,7 +38,7 @@ int main() {
 	while (!valid){//only takes number inputs
 		valid = 1;
 		cout << "Enter a very large number: ";
-		getline(cin, str1);
+		getline (cin, str1);
 		for (int i = 0; i < str1.length(); i++){
 			if (str1[i] < '0' || str1[i] > '9')//any char that isn't a number
 				valid = 0;//go through loop again
@@ -51,7 +51,7 @@ int main() {
 	while (!valid){//only numbers
 		valid = 1;
 		cout << "Enter another very large number: ";
-		getline(cin, str2);
+		getline (cin, str2);
 		for (int i = 0; i < str2.length(); i++){
 			if (str2[i] < '0' || str2[i] > '9')
 				valid = 0;
@@ -119,13 +119,18 @@ int main() {
 	while (!valid){
 			valid = 1;
 			cout << "Enter any positive number: ";
-			getline(cin, str2);//reusing str2
+			getline (cin, str2);//reusing str2
 			for (int i = 0; i < str2.length(); i++){
 				if (str2[i] < '0' || str2[i] > '9')
 					valid = 0;
 			}
+
 			if (!valid)
 				cout << "Only integer values allowed." << '\n';
+			if (str2 == ""){//block the empty string from going through
+				valid = 0;
+				cout << "You can't reverse nothingness. Try again." << '\n';
+			}
 		}
 	stringstream ss;//to turn string back into integer
 	ss << str2;
@@ -137,7 +142,7 @@ int main() {
 
 void reverseDigits(int x){
 	if (x > 0){//does nothing once x/10 reaches 0
-		cout << x%10;//print last digit
-		reverseDigits(x/10);//call again without last digit
+		cout << x % 10;//print last digit
+		reverseDigits(x / 10);//call again without last digit
 	}
 }
