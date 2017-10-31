@@ -8,6 +8,8 @@
 
 #ifndef LINKEDSTACK_H_
 #define LINKEDSTACK_H_
+#include <iostream>
+using namespace std;
 
 	//***PART I********************************************
 
@@ -28,6 +30,8 @@ class LinkedStack{
       Node<T> pop();
       void push(const T& datum);
       void destroy();
+      template <typename U>
+      friend ostream& operator<<(ostream& os, LinkedStack<U>& a);
       ~LinkedStack();
 };
 
@@ -86,6 +90,16 @@ void LinkedStack<T>::destroy(){
 template <typename T>//destructor
 LinkedStack<T>::~LinkedStack(){
 	destroy();
+}
+
+template <typename T>//convert stack into stream
+ostream& operator<<(ostream& os, LinkedStack<T>& a){
+	Node<T> *tempTop=a.top;
+	while (tempTop!=NULL){
+		os << tempTop->data <<'\n';
+		tempTop = tempTop->next;
+	}
+	return os;
 }
 
 #endif /* LINKEDSTACK_H_ */

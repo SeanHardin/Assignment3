@@ -25,6 +25,11 @@ string Customer::getName(){//returns full name
 	return mfName + " " + mlName;
 }
 
+ostream& operator<<(ostream& os, Customer& a){//print customer by name
+	os << a.getName();
+	return os;
+}
+
 void BarberShop::addCustomer(Customer& customer){//add customer to stack
 	//EVIL CODE THAT BREAKS DESPITE WORKING FINE.
 	s1.push(customer);

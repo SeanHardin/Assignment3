@@ -18,6 +18,7 @@ public:
 	Customer();
 	Customer(string s1, string s2);
 	string getName();
+	friend ostream& operator<<(ostream& os, Customer& a);
 };
 
 class BarberShop{
